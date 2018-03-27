@@ -18,8 +18,8 @@ def main():
 
     run_test_simple_t()
     run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -275,12 +275,19 @@ class CapitalT(object):
         #     run_test method in main. Compare the graphics window to
         #     clone.pdf.
         # --------------------------------------------------------------
-        
-        return CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
 
+        clone = CapitalT(self.intersection_center, self.width, self.height, self.letter_thickness)
+        clone.h_rect.outline_color = self.h_rect.outline_color
+        clone.h_rect.fill_color = self.h_rect.fill_color
+        clone.v_rect.fill_color = self.v_rect.fill_color
+        clone.v_rect.outline_color = self.v_rect.outline_color
+
+        return clone
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
 # ----------------------------------------------------------------------
+
+
 if __name__ == '__main__':
     main()
