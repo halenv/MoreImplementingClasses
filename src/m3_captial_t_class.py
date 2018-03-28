@@ -245,9 +245,17 @@ class CapitalT(object):
         #     move_by.pdf. Note: the pdf shows the different locations
         #     that the T moves through, but there is only 1 T at any moment.
         # --------------------------------------------------------------
-        self.intersection_center.x = self.intersection_center.x + dx
-        self.intersection_center.y = self.intersection_center.y + dy
+        #self.h_rect.get_center().x = self.h_rect.get_center().x + dx
+        #self.h_rect.get_center().y = self.h_rect.get_center().y + dy
 
+        #self.v_rect.get_center().x = self.v_rect.get_center().y + dx
+        #self.v_rect.get_center().y = self.v_rect.get_center().y + dy
+
+        self.h_rect.corner_1 = rg.Point(self.h_rect.corner_1.x + dx, self.h_rect.corner_1.y + dy)
+        self.h_rect.corner_2 = rg.Point(self.h_rect.corner_2.x + dx, self.h_rect.corner_2.y + dy)
+
+        self.v_rect.corner_1 = rg.Point(self.v_rect.corner_1.x + dx, self.v_rect.corner_1.y + dy)
+        self.v_rect.corner_2 = rg.Point(self.v_rect.corner_2.x + dx, self.v_rect.corner_2.y + dy)
 
     def clone(self):
         """
